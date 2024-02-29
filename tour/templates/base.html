@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <!-- Link to Bootstrap CSS via CDN (recommended) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link to Bootstrap JavaScript via CDN (recommended) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        /* CSS for form container */
+        .form-container {
+            width: 500px;
+            margin: 15 auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 2rem hsla(177, 90%, 44%, 0.384);
+            border: 2px solid #026670;
+        }
+        .card {
+            width: calc(20% - 20px); /* 20% of the container width with some margin */
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        /* CSS for form labels */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        /* CSS for form input fields */
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1px;
+            border: 2px solid black;
+            border-radius: 3px;
+        }
+
+        /* CSS for submit button */
+        input[type="submit"] {
+            background-color: #026670;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /* CSS for submit button hover effect */
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-light"
+        style="display: flex;justify-content: space-between;align-items: center; background-color:#026670;">
+        <table>
+            <tr style="font-family: cursive; color:#026670;">
+                <a href="{%url 'home' %}"
+                    style="font-family: cursive; font-weight: 200;font-size: larger; color:#fff;transition: 0.1s ease-in-out;">Traveller's
+                    Diary</a>
+                <div class="navbar-nav ms-auto">
+                    <td><a class="nav-link" href="{% url 'booking_form' %}" style="color:#fff;">Booking</a></td>
+                    {% if user.is_authenticated %}
+                    <td><a class="nav-link" href="{% url 'logout' %}" style="color:#fff;">Logout {{ user.username}}</a>
+                    </td>
+                    {% else %}
+                    <td><a class="nav-link" href="{% url 'login' %}" style="color:#fff;">Login</a></td>
+                    <td><a class="nav-link" href="{% url 'signup' %}" style="color:#fff;">Sign Up</a></td>
+                    {% endif %}
+                </div>
+            </tr>
+        </table>
+    </nav>
+
+    <div class="container">
+        {% block content%}
+        {% endblock content%}
+    </div>
+
+</body>
+
+</html>

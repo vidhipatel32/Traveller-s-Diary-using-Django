@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br>
+
+<form method="GET" action="">
+    <div
+        style="background-color: #fff;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);align-items:center;display:inline-flex;gap: 5px;">
+        <input type="text" name="search" class="form-control"
+            style="font-family: cursive;border: 1px solid #ccc;width:1000px;" />
+        <button type="submit" class="btn btn-primary"
+            style="width:100px;background-color: #026670;color: #fff;border: none;font-family: cursive; text-align:center;align-self: stretch; align-items: center;display: flex;">Search</button>
+    </div>
+
+</form>
+<p>Searching For: {{ term }}</p>
+<div class="row">
+    {% for dest in places %}
+    <div class="card-container">
+        <div class="card" style="background-color: #026670; color: #fff;height: 300px;width: 350px;">
+            <img class="card-img-top" src="{{ dest.image.url}}" />
+            <div class="card-body">
+                <a href="{% url 'details' dest.id %}">
+                    <h5 class="card-title" style="color: #fff;">
+                        {{ dest.name }}
+                    </h5>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock content %}

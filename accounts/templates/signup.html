@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card" style="margin-top: 50px; width: 400px; margin-left: 350px;box-shadow: 0 0 2rem hsla(177, 90%, 44%, 0.384);
+border: 2px solid #026670;">
+    <div class="card-body">
+        <h5 class="card-title" style="text-align: center;">Sign Up</h5>
+        {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        <p class="card-text">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" style="background-color:#026670;color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;">
+                Sign Up
+            </button>
+        </form>
+        </p>
+    </div>
+</div>
+{% endblock content %}

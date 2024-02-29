@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="form-container">
+    <h2 style="text-align: center;">Booking Form</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" value="Submit" style="background-color:#026670;color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;">Submit</button>
+    </form>
+</div>
+{% endblock content %}

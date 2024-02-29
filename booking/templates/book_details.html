@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card" style="margin-top: 50px;height:300px; width: 400px; margin-left: 350px;box-shadow: 0 0 2rem hsla(177, 90%, 44%, 0.384);
+border: 2px solid #026670;">
+    <div class="row-md-4">
+
+        <div>
+            <br><br>
+            <div class="success-message" style="margin-left: 3px;">
+                <h2 style="text-align: center; margin-top: 2px;">Booking Successful!</h2>
+                <p><span style="font-weight: bold;">Name :</span> {{ booking.name }}</p>
+                <p> <span style="font-weight: bold;">Number of Passengers :</span> {{ booking.passengers }}</p>
+                <p> <span style="font-weight: bold;">Destination : </span>{{ booking.destination }}</p>
+                <p> <span style="font-weight: bold;">Email : </span> {{ booking.email }}</p>
+                <p> <span style="font-weight: bold;">Phone Number : </span>{{ booking.phone }}</p>
+                <p style="font-weight: bold; text-align: center;">Thank you for your booking.</p>
+                <a style="background-color:#026670;color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 3px;
+                margin-left: 100px;
+                cursor: pointer;" href="{%url 'home' %}">Return To Home Page</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

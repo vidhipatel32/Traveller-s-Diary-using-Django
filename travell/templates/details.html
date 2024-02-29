@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="details"
+    style="margin-top: 10px; box-shadow: 0 0 2rem hsla(177, 90%, 44%, 0.384); border: 2px solid #026670 ; margin-bottom: 5px;">
+    <div class="row-md-4">
+        <div class="col-md-4" style="margin-top:10px;">
+            <img style="margin-left: 250px;" src="{{ place.image.url }}" alt="" />
+        </div>
+        <div class="col-md-8">
+            <div class="card-body" style="font-family: cursive;font-size: medium;margin-bottom: 1px;">
+                <h5 class="card-title">{{ place.name }}</h5>
+                <p class="card-text">Description: {{ place.description }}</p>
+                <p class="card-text">Duration: {{ place.duration }} Days</p>
+                <p class="card-text">Season: {{ place.season}}</p>
+                <p class="card-text">Price Around: {{ place.price }}k</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
